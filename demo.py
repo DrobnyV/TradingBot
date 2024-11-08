@@ -84,7 +84,12 @@ def crossover_strategy_with_plot(data):
     sell_times, sell_prices = zip(*sell_signals) if sell_signals else ([], [])
     plt.scatter(buy_times, buy_prices, marker='^', color='green', s=100, label='Buy Signal')
     plt.scatter(sell_times, sell_prices, marker='v', color='red', s=100, label='Sell Signal')
-
+    # Display total profit
+    print("\nBacktest completed.")
+    print("=" * 50)
+    print(f"Total Profit from Backtest: ${total_profit:.2f}")
+    print("=" * 50)
+    input("\nPress Enter to show graph...")
     # Chart formatting
     plt.title(f"{SYMBOL} Price with Moving Averages and Trade Signals")
     plt.xlabel("Time")
@@ -93,11 +98,7 @@ def crossover_strategy_with_plot(data):
     plt.grid()
     plt.show()
 
-    # Display total profit
-    print("\nBacktest completed.")
-    print("=" * 50)
-    print(f"Total Profit from Backtest: ${total_profit:.2f}")
-    print("=" * 50)
+
 
 # Run the bot with historical data
 def run_backtest():
